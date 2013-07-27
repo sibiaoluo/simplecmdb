@@ -21,6 +21,7 @@ def collect(request):
         sn = req.POST.get('sn')
         osver = req.POST.get('osver')
         hostname = req.POST.get('hostname')
+        uuid = req.POST.get('uuid')
         try:
             host = Host.objects.get(hostname=hostname)
         except:
@@ -32,6 +33,7 @@ def collect(request):
         host.memory = int(memory)
         host.sn = sn
         host.osver = osver
+        host.uuid = uuid
         host.vendor = vendor
         host.ipaddr = req.POST.get('ip')
         host.save()
